@@ -14,5 +14,23 @@ namespace ComicBookGallery.Models
         public bool Favorite { get; set; }
         public Artist[] Artist { get; set; }
 
+        public string DisplayText
+        {
+            //This property is read only because there is no setter defined
+            get
+            {
+                return SeriesTitle + " #" + IssueNumber;
+            }
+        }
+
+        // File name in the format of series-title-issuenumber.jpg
+        public string CoverImageFileName
+        {
+            get
+            {
+                return SeriesTitle.Replace(" ", "-").ToLower() + "-" + IssueNumber + ".jpg";
+            }
+        }
+
     }
 }
